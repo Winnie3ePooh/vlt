@@ -1,5 +1,7 @@
+.git/
 .idea/
 .mvn/
 *.iml
+*.cmd
 target/
 logs/
