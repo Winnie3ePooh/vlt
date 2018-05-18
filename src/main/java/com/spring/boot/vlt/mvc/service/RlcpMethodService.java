@@ -64,6 +64,7 @@ public class RlcpMethodService {
 
     public List<CheckingResult> getCheck(@RequestBody String instructions) {
         RlcpCheckResponse rlcpResponse = null;
+        System.out.println("0------------------------------------------0");
         if (trial.isConnect()) {
             RlcpCheckRequestBody rlcpRequestBody = new RlcpCheckRequestBody(
                     trial.getConditionsList(),
@@ -76,6 +77,7 @@ public class RlcpMethodService {
                 LOGGER.error("Rlcp CHECK response exception", e.fillInStackTrace());
             }
         }
+        System.out.println("0------------------------------------------0");
         List<CheckingResult> results = rlcpResponse.getBody().getResults();
         for (CheckingResult res : results) {
             LOGGER.info("CHECK successfully for answer = \"" + instructions + "\" with result: {\n" +
@@ -86,6 +88,7 @@ public class RlcpMethodService {
                     "\t\ttext: \"" + trial.getGeneratingResult().getText() + "\",\n" +
                     "\t\tinstraction: \"" + trial.getGeneratingResult().getInstructions() + "\"}}");
         }
+        System.out.println("0------------------------------------------0");
         return results;
     }
 }
